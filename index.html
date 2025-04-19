@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NL2Insights – Natural Language to Query and Summary</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1, h2, h3 {
+      color: #1e2a38;
+    }
+    img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin: 10px 0;
+    }
+    .prompt-block {
+      background-color: #f4f4f4;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 15px 0;
+    }
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+    .demo-grid img {
+      border: 1px solid #ccc;
+    }
+    footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #ddd;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>NL2Insights</h1>
+  <p><strong>From Natural Language to Query and Summary</strong></p>
+
+  <h2>🧠 System Overview</h2>
+  <p>This project introduces a three-stage architecture that transforms natural language queries into structured database queries and produces concise, informative summaries.</p>
+  <img src="assets/arc.png" alt="Three-Stage Architecture Pipeline" />
+
+  <h2>📄 Abstract</h2>
+  <p>
+    As the volume of digital information continues to grow, intuitive and scalable systems are needed for querying and interpreting large datasets. This project presents a modular architecture that (1) converts natural language input into structured queries, (2) executes those queries on OpenSearch or other databases, and (3) summarizes top results using LLMs. It avoids full database embedding and allows integration with systems like PostgreSQL, MongoDB, or Elasticsearch.
+  </p>
+
+  <h2>🧪 Prompt Examples</h2>
+  
+  <div class="prompt-block">
+    <h3>Prompt Example 1</h3>
+    <p><strong>Input:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <p><strong>Generated Query:</strong> { ... }</p>
+    <p><strong>Summary Output:</strong> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed non risus.</p>
+  </div>
+
+  <div class="prompt-block">
+    <h3>Prompt Example 2</h3>
+    <p><strong>Input:</strong> Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+    <p><strong>Generated Query:</strong> { ... }</p>
+    <p><strong>Summary Output:</strong> At vero eos et accusamus et iusto odio dignissimos ducimus.</p>
+  </div>
+
+  <h2>🖼 Demo Screenshots</h2>
+  <div class="demo-grid">
+    <img src="assets/result1.png" alt="Result 1">
+    <img src="assets/result2.png" alt="Result 2">
+    <img src="assets/result1.png" alt="Result 3">
+  </div>
+
+  <h2>🛠 Setup Script</h2>
+  <p>
+    You can deploy the system locally using Cloudflare Workers and OpenSearch. A starter script and full setup guide is available in the <a href="https://github.com/nl2insights/nl2insights.github.io" target="_blank">GitHub repository</a>.
+  </p>
+
+  <h2>📎 Download the Paper</h2>
+  <p>
+    <a href="paper.pdf" target="_blank">Click here to download the PDF version of the paper.</a>
+  </p>
+
+  <footer>
+    Built and maintained by the NL2Insights project. For updates and contact info, visit our <a href="https://github.com/nl2insights">GitHub</a>.
+  </footer>
+
+</body>
+</html>
