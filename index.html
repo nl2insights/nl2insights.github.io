@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>NL2Insights – Natural Language to Query and Summary</title>
+  <title>NL2Insights - Natural Language to Query and Summary</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -54,17 +54,54 @@
 
   <h2>📄 Abstract</h2>
   <p>
-    As the volume of digital information continues to grow, intuitive and scalable systems are needed for querying and interpreting large datasets. This project presents a modular architecture that (1) converts natural language input into structured queries, (2) executes those queries on OpenSearch or other databases, and (3) summarizes top results using LLMs. It avoids full database embedding and allows integration with systems like PostgreSQL, MongoDB, or Elasticsearch.
+    With the rise of big data, there is a growing need for systems that allow users to query large datasets using natural language. This paper introduces a scalable, three-stage architecture that translates user queries into structured searches and delivers concise, meaningful results. The pipeline includes: (i) converting natural language input into structured queries via prompt engineering; (ii) executing these queries on OpenSearch over a large news dataset; and (iii) grouping the most relevant results and then summarizing them using transformer-based NLP models. Although built on OpenSearch, the architecture is compatible with other database platforms such as PostgreSQL, MongoDB, Elasticsearch, and Apache Druid. This design improves usability by making information retrieval more natural, accurate, and scalable.
   </p>
 
   <h2>🧪 Prompt Examples</h2>
-  
+
   <div class="prompt-block">
     <h3>Prompt Example 1</h3>
-    <p><strong>Input:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    <p><strong>Generated Query:</strong> { ... }</p>
-    <p><strong>Summary Output:</strong> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed non risus.</p>
+  
+    <p><strong>📝 Input:</strong> Find articles about gold prices that were published in 2025.</p>
+  
+    <p><strong>⚙️ Generated Query:</strong></p>
+    <pre style="background-color:#f4f4f4; padding:10px; border-radius:6px;">
+  {
+    "query": {
+      "bool": {
+        "must": [
+          {
+            "match": {
+              "webpage.content": "gold prices"
+            }
+          },
+          {
+            "range": {
+              "publishedTime": {
+                "gte": "2025-01-01",
+                "lte": "2025-12-31"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+    </pre>
+  
+    <p><strong>📄 Summary Output:</strong></p>
+    <div style="background-color: #fafafa; border-left: 4px solid #2b6cb0; padding: 12px 16px; margin-top: 8px; border-radius: 4px;">
+      <p><em><strong>Title 1:</strong> Gold Prices Surge Amid Global Economic Instability</em></p>
+      <p>In early 2025, gold prices reached record highs as investors sought safety during growing fears of a global recession. Central banks increased their gold reserves, and market analysts noted a shift from equities to commodities. The surge was attributed to persistent inflation, geopolitical tensions, and weakening fiat currencies in multiple regions.</p>
+      
+      <hr style="margin: 12px 0;">
+  
+      <p><em><strong>Title 2:</strong> Market Volatility Sparks Renewed Interest in Precious Metals</em></p>
+      <p>Analysts reported a sharp rise in gold demand in mid-2025 as stock market instability led to increased uncertainty. Retail and institutional investors alike turned to precious metals as a hedge against risk. Several financial reports highlighted a trend of long-term gold accumulation driven by policy uncertainty in the US and Europe.</p>
+    </div>
   </div>
+  
+  
 
   <div class="prompt-block">
     <h3>Prompt Example 2</h3>
@@ -75,9 +112,13 @@
 
   <h2>🖼 Demo Screenshots</h2>
   <div class="demo-grid">
-    <img src="assets/result1.png" alt="Result 1">
-    <img src="assets/result2.png" alt="Result 2">
-    <img src="assets/result1.png" alt="Result 3">
+    <img src="assets/qt_ex1.png" alt="Result 1">
+    <img src="assets/qt_ex2.png" alt="Result 2">
+    <img src="assets/qt_ex3.png" alt="Result 3">
+    <img src="assets/gs_ex1.png" alt="Result 4">
+    <img src="assets/gs_ex2.png" alt="Result 5">
+    <img src="assets/gs_ex3.png" alt="Result 6">
+
   </div>
 
   <h2>🛠 Setup Script</h2>
