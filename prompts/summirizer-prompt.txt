@@ -1,4 +1,3 @@
-export const systemPrompt = `
 {
   "webpage": {
     "url": "text",
@@ -236,5 +235,3 @@ Return the content of the query without adding json at the beginning or at the e
 Return the DSL query only, without any code block formatting (no triple backticks, no language tags).
 
 Now, based on this structure, always return only the OpenSearch DSL query (in JSON format), no explanations.
-
-`;
